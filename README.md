@@ -1,118 +1,253 @@
-# Namaste Nepali Kitchen (MERN)
+# Namaste Nepali Kitchen (MERN Stack)
 
-Restaurant landing page + table reservation system.
+A modern full-stack restaurant management application built with the MERN stack. This project provides a seamless dining reservation experience for customers along with a powerful admin dashboard for managing bookings efficiently.
 
-- **Frontend:** React (Create React App) + Tailwind CSS
-- **Backend:** Node.js + Express + MongoDB (Mongoose)
+## Overview
 
-## Features
+Namaste Nepali Kitchen is a responsive restaurant web application designed to simplify table reservations and restaurant booking management. Customers can browse the restaurant landing page, explore the menu, and reserve tables online, while administrators can manage reservations through a dedicated dashboard.
 
-- Public site at `/` with menu + reservation form
-- Admin dashboard at `/admin` to **create / view / update / delete** reservations
-- REST API under `/api/reservation/*`
+## Tech Stack
 
-> Note: The admin page is not authenticated in the current codebase.
+### Frontend
+- React.js (Create React App)
+- Tailwind CSS
+- Axios
+- React Router
 
-## Project Structure
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 
-- `Backend/` — Express API + MongoDB
-- `Frontend/restro/` — React app
+## Core Features
 
-## Prerequisites
+### Customer Features
+- Elegant and responsive restaurant landing page
+- Interactive reservation booking form
+- Real-time reservation submission
+- Menu showcase section
+- Mobile-friendly user interface
 
-- Node.js (LTS recommended)
-- A MongoDB connection string (MongoDB Atlas or local MongoDB)
+### Admin Features
+- Reservation management dashboard
+- Create new reservations
+- View all reservations
+- Update reservation details and status
+- Delete reservations
+- Reservation status tracking
 
-### Frontend (optional) (`Frontend/restro/.env`)
+### API Features
+- RESTful API architecture
+- CRUD operations for reservations
+- MongoDB database integration
+- Backend validation for reservation requests
 
-The frontend defaults to `http://localhost:4000` for the API, but you can override it:
+> **Note:** Authentication and authorization are not implemented in the current version of the admin dashboard.
+
+---
+
+# Project Structure
+
+```bash
+Namaste-Nepali-Kitchen/
+│
+├── Backend/                # Express API and MongoDB configuration
+│
+└── Frontend/
+    └── restro/             # React frontend application
+```
+
+---
+
+# Prerequisites
+
+Before running the project locally, ensure you have the following installed:
+
+- Node.js (LTS version recommended)
+- npm or yarn
+- MongoDB Atlas account or local MongoDB instance
+
+---
+
+# Environment Variables
+
+## Backend Configuration
+
+Create a `.env` or `config.env` file inside:
+
+```bash
+Backend/config/
+```
+
+Add the following variables:
+
+```env
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+FRONTEND_URL=http://localhost:3000
+```
+
+## Frontend Configuration
+
+Create a `.env` file inside:
+
+```bash
+Frontend/restro/
+```
+
+Add:
 
 ```env
 REACT_APP_API_URL=http://localhost:4000
 ```
 
-## Run Locally (Development)
+---
 
-### 1) Start the backend API
+# Installation & Setup
+
+## 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd Namaste-Nepali-Kitchen
+```
+
+---
+
+## 2. Install Backend Dependencies
 
 ```bash
 cd Backend
 npm install
+```
+
+---
+
+## 3. Start Backend Server
+
+```bash
 npm run dev
 ```
 
-The API will run on `http://localhost:4000` (if `PORT=4000`).
+Backend server will start at:
 
-### 2) Start the frontend
+```bash
+http://localhost:4000
+```
 
-In a second terminal:
+---
+
+## 4. Install Frontend Dependencies
+
+Open a new terminal:
 
 ```bash
 cd Frontend/restro
 npm install
+```
+
+---
+
+## 5. Start Frontend Application
+
+```bash
 npm start
 ```
 
-Open `http://localhost:3000`.
-
-## API Endpoints
-
-Base path: `http://localhost:4000/api/reservation`
-
-### Create reservation
-
-`POST /create`
-
-Required fields (per backend validation):
-- `FirstName`, `LastName`, `Email`, `PhoneNumber`, `Date`, `Time`
-
-Optional fields:
-- `TableNumber` (number)
-- `Guests` (number, default `1`)
-- `Status` (`pending | confirmed | completed | cancelled`)
-
-Example:
+Frontend application will run at:
 
 ```bash
-curl -X POST http://localhost:4000/api/reservation/create \
-  -H "Content-Type: application/json" \
-  -d '{
-    "FirstName": "Alex",
-    "LastName": "Shrestha",
-    "Email": "alex@example.com",
-    "PhoneNumber": "9800000000",
-    "Date": "2026-05-12",
-    "Time": "18:30",
-    "Guests": 2,
-    "Status": "pending"
-  }'
+http://localhost:3000
 ```
 
-### List reservations
+---
 
-`GET /all`
+# REST API
 
-### Update reservation
+Base URL:
 
-`PUT /:id`
+```bash
+http://localhost:4000/api/reservation
+```
 
-- Send only the fields you want to update.
+## Available Endpoints
 
-### Delete reservation
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/create` | Create a reservation |
+| GET | `/all` | Fetch all reservations |
+| PUT | `/:id` | Update reservation details |
+| DELETE | `/:id` | Delete a reservation |
 
-`DELETE /:id`
+---
 
-## Build (Frontend)
+# Reservation Schema
+
+### Required Fields
+- FirstName
+- LastName
+- Email
+- PhoneNumber
+- Date
+- Time
+
+### Optional Fields
+- TableNumber
+- Guests
+- Status (`pending`, `confirmed`, `completed`, `cancelled`)
+
+---
+
+# Frontend Build
+
+To generate a production-ready frontend build:
 
 ```bash
 cd Frontend/restro
 npm run build
 ```
 
-This outputs a production build to `Frontend/restro/build`.
+The optimized build files will be generated inside:
 
-## Common Troubleshooting
+```bash
+Frontend/restro/build
+```
 
-- **CORS error:** ensure `FRONTEND_URL` in `Backend/config/config.env` matches the frontend origin (`http://localhost:3000`).
-- **MongoDB connection fails:** verify `MONGO_URI` and that your IP/network is allowed (Atlas Network Access).
-- **Port already in use:** change `PORT` in `Backend/config/config.env`.
+---
+
+# Troubleshooting
+
+### CORS Issues
+Ensure the frontend URL matches the backend CORS configuration:
+
+```env
+FRONTEND_URL=http://localhost:3000
+```
+
+### MongoDB Connection Errors
+- Verify your `MONGO_URI`
+- Ensure your MongoDB Atlas IP whitelist includes your current network
+- Check if the MongoDB service is running
+
+### Port Conflicts
+If port `4000` or `3000` is already in use, update the corresponding environment variables.
+
+---
+
+# Future Improvements
+
+- Authentication & authorization for admin dashboard
+- Online payment integration
+- Email confirmation system
+- Reservation availability checking
+- Table management system
+- Admin analytics dashboard
+- Docker support
+- Deployment configuration
+
+---
+
+# License
+
+This project is open-source and available for educational and personal use.
