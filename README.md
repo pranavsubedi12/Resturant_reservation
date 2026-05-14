@@ -122,6 +122,18 @@ http://localhost:4000/api/reservation
 | DELETE | `/:id` | Delete reservation |
 
 ---
+# 🔮 Future Improvements
 
+- Authentication & Authorization
+- Online Payments
+- Email Notifications
+- Table Availability System
+- Admin Analytics Dashboard
+
+---
+
+# 📜 License
+
+This project is open-source and available for educational use.
 
 
