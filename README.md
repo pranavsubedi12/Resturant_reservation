@@ -106,4 +106,22 @@ npm start
 ```
 
 ---
+# 🌐 API Endpoints
+
+Base URL:
+
+```bash
+http://localhost:4000/api/reservation
+```
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/create` | Create reservation |
+| GET | `/all` | Get all reservations |
+| PUT | `/:id` | Update reservation |
+| DELETE | `/:id` | Delete reservation |
+
+---
+
+
 
