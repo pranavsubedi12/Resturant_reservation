@@ -110,4 +110,18 @@ http://localhost:4000/api/reservation
 | DELETE | `/:id` | Delete reservation |
 
 ---
+# 🔒 Backend Functionalities
+
+- Reservation CRUD operations
+- Request validation
+- Database connection handling
+- Error handling middleware
+- REST API architecture
+- Frontend integration support
+- Scalable backend structure
+
+---
+
+
+
 
