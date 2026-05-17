@@ -121,6 +121,22 @@ http://localhost:4000/api/reservation
 - Scalable backend structure
 
 ---
+# 🚀 Future Improvements
+
+- JWT Authentication
+- Role-based Authorization
+- Email Notifications
+- Reservation Availability System
+- Payment Integration
+- Admin Analytics APIs
+- API Documentation
+- Docker Support
+
+---
+
+# 📜 License
+
+This project is open-source and available for educational and learning purposes.
 
 
 
