@@ -1,70 +1,59 @@
-# 🍽️ Namaste Nepali Kitchen
+# 🍽️ Namaste Nepali Kitchen — Backend API
 
-A modern full-stack restaurant reservation and management system built with the MERN Stack.
+A scalable and modern backend system for a restaurant reservation and management platform built using Node.js, Express.js, and MongoDB.
 
-## 🚀 Features
+This backend provides a complete RESTful API for handling restaurant reservations with CRUD operations, validation, and database integration.
 
-### Customer Features
-- Responsive restaurant landing page
-- Online table reservation form
-- Menu showcase section
-- Mobile-friendly UI
+---
 
-### Admin Features
-- View all reservations
-- Create reservations
-- Update reservation status
-- Delete reservations
+# 🚀 Backend Features
 
-### Backend Features
-- RESTful API
-- CRUD operations
-- MongoDB integration
-- Backend validation
+- RESTful API architecture
+- Reservation management system
+- Create, Read, Update, Delete operations
+- MongoDB database integration
+- Mongoose schema validation
+- Error handling middleware
+- Environment-based configuration
+- Modular folder structure
+- Scalable backend architecture
+- CORS enabled for frontend integration
 
 ---
 
 # 🛠️ Tech Stack
 
-## Frontend
-- React.js
-- Tailwind CSS
-- Axios
-- React Router DOM
-
-## Backend
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
+- dotenv
+- Nodemon
+- CORS
 
 ---
 
-# 📂 Project Structure
+# 📂 Backend Project Structure
 
 ```bash
-Namaste-Nepali-Kitchen/
+Backend/
 │
-├── Backend/
-│   ├── controllers/
-│   ├── database/
-│   ├── models/
-│   ├── routes/
-│   ├── app.js
-│   └── index.js
-│
-└── Frontend/
-    └── restro/
-        ├── public/
-        ├── src/
-        └── package.json
+├── controllers/
+├── database/
+├── middleware/
+├── models/
+├── routes/
+├── app.js
+├── index.js
+├── package.json
+└── .env
 ```
 
 ---
 
 # ⚙️ Environment Variables
 
-## Backend `.env`
+Create a `.env` file inside the `Backend` directory.
 
 ```env
 PORT=4000
@@ -72,47 +61,46 @@ MONGO_URI=your_mongodb_connection_string
 FRONTEND_URL=http://localhost:3000
 ```
 
-## Frontend `.env`
-
-```env
-REACT_APP_API_URL=http://localhost:4000
-```
-
 ---
 
-# 📦 Installation
+# 📦 Installation & Setup
 
 ## Clone Repository
 
 ```bash
 git clone <your-repository-url>
-cd Namaste-Nepali-Kitchen
+cd Namaste-Nepali-Kitchen/Backend
 ```
 
-## Install Backend
+## Install Dependencies
 
 ```bash
-cd Backend
 npm install
+```
+
+## Start Development Server
+
+```bash
 npm run dev
 ```
 
-## Install Frontend
+Server runs on:
 
 ```bash
-cd Frontend/restro
-npm install
-npm start
+http://localhost:4000
 ```
 
 ---
-# 🌐 API Endpoints
 
-Base URL:
+# 🌐 API Base URL
 
 ```bash
 http://localhost:4000/api/reservation
 ```
+
+---
+
+# 📌 API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -122,18 +110,4 @@ http://localhost:4000/api/reservation
 | DELETE | `/:id` | Delete reservation |
 
 ---
-# 🔮 Future Improvements
-
-- Authentication & Authorization
-- Online Payments
-- Email Notifications
-- Table Availability System
-- Admin Analytics Dashboard
-
----
-
-# 📜 License
-
-This project is open-source and available for educational use.
-
 
